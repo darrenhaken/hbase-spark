@@ -14,4 +14,4 @@ services:
     labels:
       com.shinko.description: "HBase Node"
 volumes:
-  - hbase-volume
+  hbase-volume:
