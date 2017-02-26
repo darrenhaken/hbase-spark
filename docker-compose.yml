@@ -7,7 +7,12 @@ services:
       - "8088:8088"
     volumes:
 #    Default location of hdfs see: http://stackoverflow.com/questions/29969722/location-of-hdfs-files-in-pseudodistributed-single-node-cluster
-      - hdfs-volume:/tmp/hadoop-root/dfs/data
+      - hdfs-volume:/tmp/hadoop-root/dfs
+#      - hdfs-volume:/tmp/hadoop-root/dfs/data
+#  hive:
+#    image: mcapitanio/hive
+#    ports:
+#      - "10002:10002"
   hbase:
     image: dajobe/hbase
     volumes:
@@ -35,13 +40,11 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - ./hue.ini:/hue/desktop/conf/hue.ini
+      - ./infrastructure/hue.ini:/hue/desktop/conf/hue.ini
     links:
       - hbase
       - solr
       - hadoop
-#  hive:
-#    image:
 volumes:
   hbase-volume:
   hdfs-volume:
