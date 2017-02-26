@@ -34,6 +34,8 @@ services:
     command: ./build/env/bin/hue runserver_plus 0.0.0.0:8888
     ports:
       - "8888:8888"
+    volumes:
+      - ./hue.ini:/hue/desktop/conf/hue.ini
     links:
       - hbase
       - solr
